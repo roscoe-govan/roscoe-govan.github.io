@@ -1,21 +1,78 @@
-<!--
-  Main homepage navigation.
-  These buttons take the visitor to the main sections/pages of your site.
-  LinkedIn takes the visitor to your external LinkedIn profile.
--->
-<nav class="landing-nav" aria-label="Main navigation">
-  <!-- Takes the visitor to your About page -->
-  <a href="about.html">About</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic character encoding for the page -->
+  <meta charset="UTF-8" />
 
-  <!-- Takes the visitor to your Resume page -->
-  <a href="resume.html">Resume</a>
+  <!-- Makes the site scale properly on phones, tablets, and desktops -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Takes the visitor to your LinkedIn profile in a new tab -->
-  <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer" class="external-link">LinkedIn</a>
+  <!-- The title shown in the browser tab -->
+  <title>Home | Roscoe Govan</title>
 
-  <!-- Takes the visitor to your Projects page -->
-  <a href="projects.html">Projects</a>
+  <!-- Short description used by search engines and link previews -->
+  <meta
+    name="description"
+    content="Home page for Roscoe Govan's professional cybersecurity website."
+  />
 
-  <!-- Takes the visitor to your Contact page -->
-  <a href="contact.html">Contact</a>
-</nav>
+  <!-- Links this HTML page to your main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!--
+    Main landing page wrapper.
+    This centers the Home page content vertically and horizontally.
+  -->
+  <main class="landing-page">
+
+    <!--
+      Main content container for the Home page.
+      This controls spacing, width, and alignment.
+    -->
+    <div class="landing-container">
+
+      <!-- Main homepage name heading -->
+      <h1 class="landing-name">Roscoe Govan</h1>
+
+      <!-- Short professional positioning statement -->
+      <p class="landing-subtitle">
+        Cybersecurity professional focused on investigations, detection, OSINT,
+        and technical growth.
+      </p>
+
+      <!--
+        Profile image section.
+        Make sure this file exists in your repo at:
+        images/homepage-photo.jpg
+      -->
+      <div class="landing-image-wrap">
+        <img
+          src="images/homepage-photo.jpg"
+          alt="Portrait of Roscoe Govan"
+          class="landing-image"
+        />
+      </div>
+
+      <!-- Short homepage summary -->
+      <p class="landing-summary">
+        Welcome to my professional website. Here you can find my background,
+        resume, technical notes, projects, and contact information as I continue
+        growing across cybersecurity and related technical disciplines.
+      </p>
+
+      <!--
+        Main homepage navigation.
+        GitHub and Notes have been removed from the Home page.
+      -->
+      <nav class="landing-nav" aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer" class="external-link">LinkedIn</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>
