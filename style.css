@@ -1,14 +1,36 @@
+/* =========================================================
+   COLOR VARIABLES / SITE THEME
+   ---------------------------------------------------------
+   These variables control the overall color palette for the
+   website. If you want to change the site's look later,
+   this is the safest place to start.
+   ========================================================= */
 :root {
+  /* Main background color for the page */
   --bg: #0b1220;
+
+  /* Standard card / button background color */
   --panel: #121a2b;
+
+  /* Slight alternate panel color if needed on other pages */
   --panel-alt: #0f1726;
+
+  /* Main text color used across the page */
   --text: #e5e7eb;
+
+  /* Secondary / softer text color for subtitles */
   --muted: #aab4c5;
+
+  /* Border color used for cards, buttons, and image frames */
   --line: #243046;
+
+  /* Main accent color used for buttons and links */
   --accent: #7dd3fc;
+
+  /* Slightly brighter accent color for hover states */
   --accent-hover: #38bdf8;
 
-  /* External link colors */
+  /* External link colors for items that take the visitor away from your site */
   --external-bg: #3a1217;
   --external-border: #7f1d1d;
   --external-text: #fca5a5;
@@ -17,6 +39,12 @@
   --external-hover-text: #fecaca;
 }
 
+/* =========================================================
+   GLOBAL RESET / BASE ELEMENT BEHAVIOR
+   ---------------------------------------------------------
+   These rules create a cleaner starting point for layout and
+   make spacing and sizing more predictable across the page.
+   ========================================================= */
 * {
   box-sizing: border-box;
 }
@@ -25,6 +53,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================================================
+   BODY / WHOLE PAGE STYLING
+   ---------------------------------------------------------
+   This controls the overall page background, font, text
+   color, and general readability.
+   ========================================================= */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -33,6 +67,12 @@ body {
   line-height: 1.65;
 }
 
+/* =========================================================
+   DEFAULT LINK STYLING
+   ---------------------------------------------------------
+   This sets how normal links appear unless a more specific
+   rule overrides them.
+   ========================================================= */
 a {
   color: var(--accent);
   text-decoration: none;
@@ -42,12 +82,24 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* =========================================================
+   IMAGE DEFAULT BEHAVIOR
+   ---------------------------------------------------------
+   Prevents images from overflowing their containers.
+   ========================================================= */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Main Home page wrapper */
+/* =========================================================
+   MAIN HOME PAGE WRAPPER
+   ---------------------------------------------------------
+   This is the full-screen section that centers the homepage
+   content both vertically and horizontally.
+   If you want the homepage content higher or lower on the
+   screen, this is one of the key sections to edit.
+   ========================================================= */
 .landing-page {
   min-height: 100vh;
   display: flex;
@@ -57,7 +109,14 @@ img {
   background: linear-gradient(180deg, #10182a 0%, #0b1220 100%);
 }
 
-/* Main content container */
+/* =========================================================
+   HOME PAGE CONTENT CONTAINER
+   ---------------------------------------------------------
+   Controls the maximum width of the homepage content and
+   aligns everything in a centered vertical stack.
+   Adjust the gap if you want more or less spacing between
+   the name, subtitle, image, summary, and buttons.
+   ========================================================= */
 .landing-container {
   width: min(100%, 860px);
   text-align: center;
@@ -67,7 +126,12 @@ img {
   gap: 1.15rem;
 }
 
-/* Main homepage name */
+/* =========================================================
+   MAIN NAME / HERO TITLE
+   ---------------------------------------------------------
+   This controls the size and spacing of your name at the
+   top of the homepage.
+   ========================================================= */
 .landing-name {
   margin: 0;
   font-size: clamp(3rem, 7vw, 5rem);
@@ -75,7 +139,13 @@ img {
   color: var(--text);
 }
 
-/* Subtitle under name */
+/* =========================================================
+   PROFESSIONAL SUBTITLE
+   ---------------------------------------------------------
+   This is the line under your name explaining your role /
+   focus area. Change font-size or color here if you want it
+   more subtle or more prominent.
+   ========================================================= */
 .landing-subtitle {
   max-width: 760px;
   margin: 0;
@@ -83,7 +153,13 @@ img {
   color: var(--muted);
 }
 
-/* Framed image container */
+/* =========================================================
+   PROFILE IMAGE FRAME
+   ---------------------------------------------------------
+   This controls the outer box around your profile image.
+   Adjust width / height to make the image appear larger or
+   smaller on the homepage.
+   ========================================================= */
 .landing-image-wrap {
   width: 300px;
   height: 300px;
@@ -98,7 +174,14 @@ img {
   overflow: hidden;
 }
 
-/* Actual profile image */
+/* =========================================================
+   ACTUAL PROFILE IMAGE
+   ---------------------------------------------------------
+   object-fit: cover makes the image fill the frame neatly.
+   object-position changes what part of the image is centered.
+   If your face appears too low or too high, edit the
+   object-position value.
+   ========================================================= */
 .landing-image {
   width: 100%;
   height: 100%;
@@ -107,7 +190,13 @@ img {
   border-radius: 18px;
 }
 
-/* Welcome / summary paragraph */
+/* =========================================================
+   HOMEPAGE SUMMARY PARAGRAPH
+   ---------------------------------------------------------
+   This is the welcome text below the image. Adjust max-width,
+   font-size, or margins here if you want it tighter or more
+   readable.
+   ========================================================= */
 .landing-summary {
   max-width: 760px;
   margin: 0.25rem 0 0.5rem;
@@ -115,7 +204,13 @@ img {
   color: var(--text);
 }
 
-/* Navigation button layout */
+/* =========================================================
+   NAVIGATION BUTTON CONTAINER
+   ---------------------------------------------------------
+   This controls how the homepage buttons are arranged.
+   If you want more spacing between buttons, adjust the gap.
+   If you want the nav wider or narrower, change max-width.
+   ========================================================= */
 .landing-nav {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +220,12 @@ img {
   margin: 0.5rem auto 0;
 }
 
-/* Standard internal navigation buttons */
+/* =========================================================
+   STANDARD INTERNAL NAVIGATION BUTTONS
+   ---------------------------------------------------------
+   These are the normal homepage buttons for internal pages
+   like About, Resume, Projects, and Contact.
+   ========================================================= */
 .landing-nav a,
 .landing-nav a:visited {
   display: inline-flex;
@@ -141,7 +241,12 @@ img {
   transition: 0.2s ease;
 }
 
-/* Hover state for internal buttons */
+/* =========================================================
+   INTERNAL NAV BUTTON HOVER STATE
+   ---------------------------------------------------------
+   This controls what internal buttons do when the mouse is
+   placed over them.
+   ========================================================= */
 .landing-nav a:hover,
 .landing-nav a:focus {
   border-color: var(--accent);
@@ -149,7 +254,13 @@ img {
   transform: translateY(-1px);
 }
 
-/* External link buttons such as LinkedIn */
+/* =========================================================
+   EXTERNAL NAVIGATION BUTTONS
+   ---------------------------------------------------------
+   These are for buttons that take the visitor away from your
+   site, such as LinkedIn or other external destinations.
+   Add class="external-link" in the HTML for these to apply.
+   ========================================================= */
 .landing-nav a.external-link,
 .landing-nav a.external-link:visited {
   background: var(--external-bg);
@@ -157,6 +268,11 @@ img {
   color: var(--external-text);
 }
 
+/* =========================================================
+   EXTERNAL NAV BUTTON HOVER STATE
+   ---------------------------------------------------------
+   This controls the hover behavior for external links.
+   ========================================================= */
 .landing-nav a.external-link:hover,
 .landing-nav a.external-link:focus {
   background: var(--external-hover-bg);
@@ -165,22 +281,31 @@ img {
   transform: translateY(-1px);
 }
 
-/* Responsive adjustments */
+/* =========================================================
+   MOBILE / SMALL SCREEN RESPONSIVE STYLING
+   ---------------------------------------------------------
+   These rules apply when the screen width is 640px or less.
+   They make the page fit better on phones and smaller screens.
+   ========================================================= */
 @media (max-width: 640px) {
+  /* Reduce page padding on small screens */
   .landing-page {
     padding: 1.25rem;
   }
 
+  /* Make the profile image slightly smaller on mobile */
   .landing-image-wrap {
     width: 240px;
     height: 240px;
   }
 
+  /* Reduce text size slightly for better fit */
   .landing-subtitle,
   .landing-summary {
     font-size: 1rem;
   }
 
+  /* Slightly shrink buttons on mobile */
   .landing-nav a,
   .landing-nav a:visited {
     min-width: 110px;
