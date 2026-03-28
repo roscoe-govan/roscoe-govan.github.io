@@ -45,7 +45,6 @@ img {
   margin: 0 auto;
 }
 
-/* Standard page hero/header */
 .hero {
   padding: 2rem 0 3rem;
   border-bottom: 1px solid var(--line);
@@ -64,6 +63,7 @@ h1 {
   margin: 0 0 1rem;
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1.1;
+  color: var(--text);
 }
 
 .subtitle {
@@ -87,20 +87,22 @@ h2 {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--text);
 }
 
 h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
   font-size: 1.15rem;
+  color: var(--text);
 }
 
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--text);
 }
 
-/* Shared button-style nav for inner pages */
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -130,7 +132,6 @@ p {
   transform: translateY(-1px);
 }
 
-/* Contact / shared action links */
 .hero-links {
   display: flex;
   flex-wrap: wrap;
@@ -159,7 +160,6 @@ p {
   transform: translateY(-1px);
 }
 
-/* Cards and grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -194,7 +194,6 @@ p {
   text-align: center;
 }
 
-/* Home / landing page */
 .landing-page {
   min-height: 100vh;
   display: flex;
@@ -272,7 +271,6 @@ p {
   transform: translateY(-1px);
 }
 
-/* Home intro layout if you use a summary/photo section */
 .home-layout {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -303,7 +301,6 @@ p {
   margin-bottom: 0.75rem;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .home-layout {
     grid-template-columns: 1fr;
