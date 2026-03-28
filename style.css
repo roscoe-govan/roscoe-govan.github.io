@@ -26,3 +26,76 @@
   color: var(--accent-hover);
   transform: translateY(-1px);
 }
+
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.landing-container {
+  width: min(100%, 700px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.landing-name {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.landing-image-wrap {
+  width: 260px;
+  height: 260px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.landing-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 700px;
+}
+
+.landing-nav a,
+.landing-nav a:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  padding: 1.1rem 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.landing-nav a:hover,
+.landing-nav a:focus {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
