@@ -1,40 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic character encoding -->
   <meta charset="UTF-8" />
+
+  <!-- Makes the page responsive on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab title -->
   <title>Contact | Roscoe Govan</title>
-  <meta name="description" content="Contact Roscoe Govan." />
+
+  <!-- Search / preview description -->
+  <meta
+    name="description"
+    content="Contact page for Roscoe Govan with separate sections for hiring managers and technical professionals."
+  />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Main page header -->
   <header class="hero">
     <div class="container">
+      <!-- Navigation bar -->
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resume.html">Resume</a>
-        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/roscoe-govan" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="notes.html">Notes</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer" class="external-link">LinkedIn</a>
       </nav>
 
       <h1>Contact</h1>
-      <p class="subtitle">Professional contact information and links.</p>
+      <p class="subtitle">
+        Separate contact options for hiring managers and technical professionals.
+      </p>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <h2>Contact</h2>
-        <div class="hero-links">
-          <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/roscoe-govan" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:roscoe.govan.tech@outlook.com">roscoe.govan.tech@outlook.com</a>
+        <p class="contact-intro">
+          Whether you are reaching out regarding a professional opportunity or
+          technical collaboration, please use the form that best matches the
+          reason for your visit.
+        </p>
+
+        <div class="contact-split">
+          <!-- Left side: Hiring Managers -->
+          <div class="contact-panel">
+            <h2>For Hiring Managers</h2>
+            <p>
+              Use this form if you are reaching out regarding an interview,
+              role, recruiter outreach, or other professional opportunity.
+            </p>
+
+            <!--
+              This form is visual unless connected to a form backend.
+              Later, replace the action value with a real form endpoint.
+            -->
+            <form class="contact-form" action="#" method="post">
+              <label for="hm-name">Name</label>
+              <input type="text" id="hm-name" name="hm-name" placeholder="Your name" />
+
+              <label for="hm-company">Company</label>
+              <input type="text" id="hm-company" name="hm-company" placeholder="Company name" />
+
+              <label for="hm-email">Email</label>
+              <input type="email" id="hm-email" name="hm-email" placeholder="your.email@example.com" />
+
+              <label for="hm-message">Message</label>
+              <textarea id="hm-message" name="hm-message" rows="6" placeholder="Tell me about the opportunity or reason for your outreach."></textarea>
+
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
+          <!-- Right side: Technical Professionals -->
+          <div class="contact-panel">
+            <h2>For Technical Professionals</h2>
+            <p>
+              Use this form if you are interested in connecting around
+              cybersecurity, shared learning, technical discussion, or possible
+              collaboration.
+            </p>
+
+            <form class="contact-form" action="#" method="post">
+              <label for="tp-name">Name</label>
+              <input type="text" id="tp-name" name="tp-name" placeholder="Your name" />
+
+              <label for="tp-email">Email</label>
+              <input type="email" id="tp-email" name="tp-email" placeholder="your.email@example.com" />
+
+              <label for="tp-topic">Topic</label>
+              <input type="text" id="tp-topic" name="tp-topic" placeholder="Area of interest or collaboration topic" />
+
+              <label for="tp-message">Message</label>
+              <textarea id="tp-message" name="tp-message" rows="6" placeholder="Tell me what you would like to connect about."></textarea>
+
+              <button type="submit">Send</button>
+            </form>
+          </div>
         </div>
+
+        <p class="contact-note">
+          You can also connect with me directly through
+          <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
       </div>
     </section>
   </main>
