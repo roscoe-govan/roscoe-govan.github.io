@@ -311,4 +311,142 @@ img {
     min-width: 110px;
     padding: 0.95rem 1.15rem;
   }
+
+   /* =========================================================
+   CONTACT PAGE INTRO
+   ---------------------------------------------------------
+   Intro paragraph above the two panels.
+   ========================================================= */
+.contact-intro {
+  max-width: 850px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =========================================================
+   CONTACT PAGE TWO-COLUMN LAYOUT
+   ---------------------------------------------------------
+   Creates left and right panels with a visible divider.
+   ========================================================= */
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Divider line between panels */
+.contact-split::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  width: 1px;
+  height: 100%;
+  background: var(--line);
+  justify-self: center;
+}
+
+/* Left and right panel cards */
+.contact-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.contact-panel:first-child {
+  grid-column: 1;
+}
+
+.contact-panel:last-child {
+  grid-column: 3;
+}
+
+/* =========================================================
+   CONTACT FORM LAYOUT
+   ---------------------------------------------------------
+   Forces labels and fields to stack vertically.
+   ========================================================= */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #0f1726;
+  color: var(--text);
+  font: inherit;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.contact-form button {
+  margin-top: 0.5rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-alt);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.contact-form button:hover,
+.contact-form button:focus {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Bottom note under forms */
+.contact-note {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE CONTACT LAYOUT
+   ---------------------------------------------------------
+   Stacks panels on smaller screens and removes divider.
+   ========================================================= */
+@media (max-width: 900px) {
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-split::before {
+    display: none;
+  }
+
+  .contact-panel:first-child,
+  .contact-panel:last-child {
+    grid-column: auto;
+  }
+}
 }
