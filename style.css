@@ -93,12 +93,238 @@ img {
 }
 
 /* =========================================================
-   MAIN HOME PAGE WRAPPER
+   SHARED CONTENT CONTAINER
    ---------------------------------------------------------
-   This is the full-screen section that centers the homepage
-   content both vertically and horizontally.
-   If you want the homepage content higher or lower on the
-   screen, this is one of the key sections to edit.
+   Used on interior pages like Contact, About, Resume, etc.
+   Keeps content centered with a max width.
+   ========================================================= */
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   INTERIOR PAGE HERO / HEADER
+   ---------------------------------------------------------
+   Used for pages like Contact, About, Resume, Projects.
+   Controls the top banner area.
+   ========================================================= */
+.hero {
+  padding: 2rem 0 3rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #10182a 0%, #0b1220 100%);
+}
+
+/* Small uppercase label style if needed later */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Main page heading style */
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--text);
+}
+
+/* Subtitle under page headings */
+.subtitle {
+  max-width: 750px;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   GENERIC PAGE SECTION STYLING
+   ---------------------------------------------------------
+   Use .section for normal content blocks and .section.alt
+   when you want a darker contrast section.
+   ========================================================= */
+.section {
+  padding: 4rem 0;
+}
+
+.section.alt {
+  background: var(--panel-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Standard heading sizes for content sections */
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+/* Default paragraph spacing */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* =========================================================
+   STANDARD INTERIOR PAGE NAVIGATION
+   ---------------------------------------------------------
+   Used on pages like Contact, About, Resume, Projects, etc.
+   These are the button-like nav items at the top.
+   ========================================================= */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.site-nav a,
+.site-nav a:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 1.05rem 1.4rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   EXTERNAL BUTTON STYLING
+   ---------------------------------------------------------
+   Add class="external-link" to nav buttons that take the
+   visitor off your site, such as LinkedIn.
+   ========================================================= */
+.site-nav a.external-link,
+.site-nav a.external-link:visited,
+.landing-nav a.external-link,
+.landing-nav a.external-link:visited {
+  background: var(--external-bg);
+  border: 1px solid var(--external-border);
+  color: var(--external-text);
+}
+
+.site-nav a.external-link:hover,
+.site-nav a.external-link:focus,
+.landing-nav a.external-link:hover,
+.landing-nav a.external-link:focus {
+  background: var(--external-hover-bg);
+  border-color: var(--external-hover-border);
+  color: var(--external-hover-text);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   GENERIC BUTTON-LIKE LINK GROUP
+   ---------------------------------------------------------
+   Used for grouped links like contact actions.
+   ========================================================= */
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.hero-links a,
+.hero-links a:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.hero-links a:hover,
+.hero-links a:focus {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   SHARED CARD / GRID STYLING
+   ---------------------------------------------------------
+   Useful for projects, feature blocks, or multi-column info.
+   ========================================================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+/* =========================================================
+   TIMELINE / STACKED PANEL STYLE
+   ---------------------------------------------------------
+   Useful for experience sections or vertically stacked items.
+   ========================================================= */
+.timeline {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+/* =========================================================
+   FOOTER
+   ---------------------------------------------------------
+   Standard site footer styling.
+   ========================================================= */
+.footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* =========================================================
+   HOMEPAGE / LANDING PAGE WRAPPER
+   ---------------------------------------------------------
+   This is for your index.html landing page that centers the
+   name, photo, summary, and nav buttons.
    ========================================================= */
 .landing-page {
   min-height: 100vh;
@@ -109,14 +335,7 @@ img {
   background: linear-gradient(180deg, #10182a 0%, #0b1220 100%);
 }
 
-/* =========================================================
-   HOME PAGE CONTENT CONTAINER
-   ---------------------------------------------------------
-   Controls the maximum width of the homepage content and
-   aligns everything in a centered vertical stack.
-   Adjust the gap if you want more or less spacing between
-   the name, subtitle, image, summary, and buttons.
-   ========================================================= */
+/* Main homepage content container */
 .landing-container {
   width: min(100%, 860px);
   text-align: center;
@@ -126,12 +345,7 @@ img {
   gap: 1.15rem;
 }
 
-/* =========================================================
-   MAIN NAME / HERO TITLE
-   ---------------------------------------------------------
-   This controls the size and spacing of your name at the
-   top of the homepage.
-   ========================================================= */
+/* Homepage name */
 .landing-name {
   margin: 0;
   font-size: clamp(3rem, 7vw, 5rem);
@@ -139,13 +353,7 @@ img {
   color: var(--text);
 }
 
-/* =========================================================
-   PROFESSIONAL SUBTITLE
-   ---------------------------------------------------------
-   This is the line under your name explaining your role /
-   focus area. Change font-size or color here if you want it
-   more subtle or more prominent.
-   ========================================================= */
+/* Homepage subtitle under your name */
 .landing-subtitle {
   max-width: 760px;
   margin: 0;
@@ -153,13 +361,7 @@ img {
   color: var(--muted);
 }
 
-/* =========================================================
-   PROFILE IMAGE FRAME
-   ---------------------------------------------------------
-   This controls the outer box around your profile image.
-   Adjust width / height to make the image appear larger or
-   smaller on the homepage.
-   ========================================================= */
+/* Profile image frame on homepage */
 .landing-image-wrap {
   width: 300px;
   height: 300px;
@@ -174,14 +376,7 @@ img {
   overflow: hidden;
 }
 
-/* =========================================================
-   ACTUAL PROFILE IMAGE
-   ---------------------------------------------------------
-   object-fit: cover makes the image fill the frame neatly.
-   object-position changes what part of the image is centered.
-   If your face appears too low or too high, edit the
-   object-position value.
-   ========================================================= */
+/* Actual homepage image */
 .landing-image {
   width: 100%;
   height: 100%;
@@ -190,13 +385,7 @@ img {
   border-radius: 18px;
 }
 
-/* =========================================================
-   HOMEPAGE SUMMARY PARAGRAPH
-   ---------------------------------------------------------
-   This is the welcome text below the image. Adjust max-width,
-   font-size, or margins here if you want it tighter or more
-   readable.
-   ========================================================= */
+/* Homepage summary paragraph */
 .landing-summary {
   max-width: 760px;
   margin: 0.25rem 0 0.5rem;
@@ -204,13 +393,7 @@ img {
   color: var(--text);
 }
 
-/* =========================================================
-   NAVIGATION BUTTON CONTAINER
-   ---------------------------------------------------------
-   This controls how the homepage buttons are arranged.
-   If you want more spacing between buttons, adjust the gap.
-   If you want the nav wider or narrower, change max-width.
-   ========================================================= */
+/* Homepage button navigation */
 .landing-nav {
   display: flex;
   flex-wrap: wrap;
@@ -220,12 +403,6 @@ img {
   margin: 0.5rem auto 0;
 }
 
-/* =========================================================
-   STANDARD INTERNAL NAVIGATION BUTTONS
-   ---------------------------------------------------------
-   These are the normal homepage buttons for internal pages
-   like About, Resume, Projects, and Contact.
-   ========================================================= */
 .landing-nav a,
 .landing-nav a:visited {
   display: inline-flex;
@@ -241,12 +418,6 @@ img {
   transition: 0.2s ease;
 }
 
-/* =========================================================
-   INTERNAL NAV BUTTON HOVER STATE
-   ---------------------------------------------------------
-   This controls what internal buttons do when the mouse is
-   placed over them.
-   ========================================================= */
 .landing-nav a:hover,
 .landing-nav a:focus {
   border-color: var(--accent);
@@ -255,178 +426,39 @@ img {
 }
 
 /* =========================================================
-   EXTERNAL NAVIGATION BUTTONS
+   OPTIONAL HOME INTRO TWO-COLUMN LAYOUT
    ---------------------------------------------------------
-   These are for buttons that take the visitor away from your
-   site, such as LinkedIn or other external destinations.
-   Add class="external-link" in the HTML for these to apply.
+   Keep these in case you later use a split photo/summary
+   layout on another page.
    ========================================================= */
-.landing-nav a.external-link,
-.landing-nav a.external-link:visited {
-  background: var(--external-bg);
-  border: 1px solid var(--external-border);
-  color: var(--external-text);
-}
-
-/* =========================================================
-   EXTERNAL NAV BUTTON HOVER STATE
-   ---------------------------------------------------------
-   This controls the hover behavior for external links.
-   ========================================================= */
-.landing-nav a.external-link:hover,
-.landing-nav a.external-link:focus {
-  background: var(--external-hover-bg);
-  border-color: var(--external-hover-border);
-  color: var(--external-hover-text);
-  transform: translateY(-1px);
-}
-
-/* =========================================================
-   MOBILE / SMALL SCREEN RESPONSIVE STYLING
-   ---------------------------------------------------------
-   These rules apply when the screen width is 640px or less.
-   They make the page fit better on phones and smaller screens.
-   ========================================================= */
-@media (max-width: 640px) {
-  /* Reduce page padding on small screens */
-  .landing-page {
-    padding: 1.25rem;
-  }
-
-  /* Make the profile image slightly smaller on mobile */
-  .landing-image-wrap {
-    width: 240px;
-    height: 240px;
-  }
-
-  /* Reduce text size slightly for better fit */
-  .landing-subtitle,
-  .landing-summary {
-    font-size: 1rem;
-  }
-
-  /* Slightly shrink buttons on mobile */
-  .landing-nav a,
-  .landing-nav a:visited {
-    min-width: 110px;
-    padding: 0.95rem 1.15rem;
-  }
-
-   /* =========================================================
-   CONTACT PAGE INTRO
-   ---------------------------------------------------------
-   Intro paragraph above the two panels.
-   ========================================================= */
-.contact-intro {
-  max-width: 850px;
-  margin: 0 auto 2rem;
-  text-align: center;
-  color: var(--muted);
-}
-
-/* =========================================================
-   CONTACT PAGE TWO-COLUMN LAYOUT
-   ---------------------------------------------------------
-   Creates left and right panels with a visible divider.
-   ========================================================= */
-.contact-split {
+.home-layout {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 2rem;
-  align-items: stretch;
+  align-items: center;
 }
 
-/* Divider line between panels */
-.contact-split::before {
-  content: "";
-  grid-column: 2;
-  grid-row: 1;
-  width: 1px;
-  height: 100%;
-  background: var(--line);
-  justify-self: center;
-}
-
-/* Left and right panel cards */
-.contact-panel {
+.home-image-card,
+.home-summary-card {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 1.5rem;
+  border-radius: 16px;
+  padding: 1.25rem;
 }
 
-.contact-panel:first-child {
-  grid-column: 1;
-}
-
-.contact-panel:last-child {
-  grid-column: 3;
-}
-
-/* =========================================================
-   CONTACT FORM LAYOUT
-   ---------------------------------------------------------
-   Forces labels and fields to stack vertically.
-   ========================================================= */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-
-.contact-form label {
-  font-weight: 600;
-  color: var(--text);
-}
-
-.contact-form input,
-.contact-form textarea {
+.profile-placeholder {
   width: 100%;
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--line);
+  height: auto;
+  object-fit: cover;
   border-radius: 12px;
-  background: #0f1726;
-  color: var(--text);
-  font: inherit;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--muted);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.contact-form button {
-  margin-top: 0.5rem;
-  padding: 1rem 1.2rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--panel-alt);
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.contact-form button:hover,
-.contact-form button:focus {
-  border-color: var(--accent);
-  color: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-/* Bottom note under forms */
-.contact-note {
-  margin-top: 2rem;
-  text-align: center;
-  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
 }
 
 /* =========================================================
@@ -547,53 +579,65 @@ img {
 }
 
 /* =========================================================
-   MOBILE / SMALL SCREEN RESPONSIVE STYLING
+   RESPONSIVE ADJUSTMENTS
    ---------------------------------------------------------
-   Homepage adjustments for small screens.
-   ========================================================= */
-@media (max-width: 640px) {
-  /* Reduce page padding on small screens */
-  .landing-page {
-    padding: 1.25rem;
-  }
-
-  /* Make the profile image slightly smaller on mobile */
-  .landing-image-wrap {
-    width: 240px;
-    height: 240px;
-  }
-
-  /* Reduce text size slightly for better fit */
-  .landing-subtitle,
-  .landing-summary {
-    font-size: 1rem;
-  }
-
-  /* Slightly shrink buttons on mobile */
-  .landing-nav a,
-  .landing-nav a:visited {
-    min-width: 110px;
-    padding: 0.95rem 1.15rem;
-  }
-}
-
-/* =========================================================
-   MOBILE RESPONSIVE CONTACT LAYOUT
-   ---------------------------------------------------------
-   Stacks panels on smaller screens and removes divider.
+   Handles smaller screens so the homepage and contact page
+   remain usable on tablets and phones.
    ========================================================= */
 @media (max-width: 900px) {
+  /* Optional home split layout becomes one column */
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact forms stack vertically on smaller screens */
   .contact-split {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
+  /* Hide vertical divider when stacked */
   .contact-split::before {
     display: none;
   }
 
+  /* Reset grid placement when stacked */
   .contact-panel:first-child,
   .contact-panel:last-child {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Reduce landing page padding for mobile */
+  .landing-page {
+    padding: 1.25rem;
+  }
+
+  /* Make profile image slightly smaller on small screens */
+  .landing-image-wrap {
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Slightly reduce text size on small screens */
+  .landing-subtitle,
+  .landing-summary {
+    font-size: 1rem;
+  }
+
+  /* Center grouped links on smaller screens */
+  .site-nav,
+  .landing-nav,
+  .hero-links {
+    justify-content: center;
+  }
+
+  /* Slightly shrink buttons on smaller screens */
+  .site-nav a,
+  .landing-nav a,
+  .hero-links a {
+    min-width: 110px;
+    padding: 0.95rem 1.15rem;
   }
 }
