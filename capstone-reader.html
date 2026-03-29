@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic character encoding -->
+  <meta charset="UTF-8" />
+
+  <!-- Makes the page responsive on phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab title -->
+  <title>Capstone Reader | Roscoe Govan</title>
+
+  <!-- Search / preview description -->
+  <meta
+    name="description"
+    content="Digital reader for Roscoe Govan's WGU capstone report."
+  />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!--
+    PAGE HEADER
+    ------------------------------------------------------
+    This is the top hero section with navigation and page title.
+  -->
+  <header class="hero">
+    <div class="container">
+      <!-- Top navigation -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="capstone.html">Capstone</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer" class="external-link">LinkedIn</a>
+      </nav>
+
+      <!-- Page title -->
+      <h1>Capstone Reader</h1>
+
+      <!-- Subtitle / short explanation -->
+      <p class="subtitle">
+        Read my Western Governors University capstone report directly on the page.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!--
+      INTRO SECTION
+      ------------------------------------------------------
+      Briefly explains what the visitor is looking at and gives
+      them alternate ways to access the file.
+    -->
+    <section class="section">
+      <div class="container">
+        <h2>Digital Reader</h2>
+        <p>
+          This page provides an online reading view of my capstone report.
+          If you prefer, you can also open the document directly in a new tab
+          or download the PDF.
+        </p>
+
+        <!--
+          ACTION BUTTONS
+          --------------------------------------------------
+          These buttons give alternate ways to access the file.
+          Make sure the PDF path below matches where your file is stored.
+        -->
+        <div class="hero-links">
+          <a href="Capstone_Written_Report_RoscoeGovan.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
+          <a href="Capstone_Written_Report_RoscoeGovan.pdf" download>Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      EMBEDDED PDF READER
+      ------------------------------------------------------
+      This iframe displays the PDF directly on the page.
+      If the file is not in the repo root, update the src path.
+    -->
+    <section class="section alt">
+      <div class="container">
+        <div class="pdf-reader-frame">
+          <iframe
+            src="Capstone_Written_Report_RoscoeGovan.pdf"
+            title="Capstone PDF Reader">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      FALLBACK NOTE
+      ------------------------------------------------------
+      Some browsers or devices may not display embedded PDFs well.
+      This gives the visitor clear fallback guidance.
+    -->
+    <section class="section">
+      <div class="container">
+        <p class="reader-note">
+          If the document does not display properly in your browser,
+          use the buttons above to open it in a new tab or download it directly.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Roscoe Govan. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
