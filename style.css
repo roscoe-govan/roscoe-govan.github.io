@@ -641,3 +641,59 @@ p {
     padding: 0.95rem 1.15rem;
   }
 }
+
+/* =========================================================
+   CAPSTONE DIGITAL BOOK READER
+   ---------------------------------------------------------
+   Styles the page-by-page PDF reader.
+   ========================================================= */
+.reader-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reader-controls button {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.reader-controls button:hover,
+.reader-controls button:focus {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+#page-info {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.book-reader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  overflow: auto;
+}
+
+#pdf-canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
