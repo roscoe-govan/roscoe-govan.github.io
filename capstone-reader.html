@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic character encoding -->
   <meta charset="UTF-8" />
+
+  <!-- Makes the page responsive on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab title -->
   <title>Capstone Reader | Roscoe Govan</title>
+
+  <!-- Search / preview description -->
   <meta
     name="description"
     content="Digital reader for Roscoe Govan's WGU capstone report."
   />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- PDF.js library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.js"></script>
+  <!--
+    PDF.js LEGACY BUILD
+    ------------------------------------------------------
+    This is the browser-friendly version that is more reliable
+    for a static GitHub Pages site.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
+  <!-- Page header -->
   <header class="hero">
     <div class="container">
+      <!-- Navigation -->
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -34,6 +50,7 @@
   </header>
 
   <main>
+    <!-- Top actions -->
     <section class="section">
       <div class="container">
         <div class="hero-links">
@@ -43,17 +60,22 @@
       </div>
     </section>
 
+    <!-- Reader -->
     <section class="section alt">
       <div class="container">
         <div class="reader-controls">
           <button id="prev-page" type="button">← Previous</button>
-          <span id="page-info">Page 1 of ?</span>
+          <span id="page-info">Loading PDF...</span>
           <button id="next-page" type="button">Next →</button>
         </div>
 
         <div class="book-reader">
           <canvas id="pdf-canvas"></canvas>
         </div>
+
+        <p class="reader-note" id="reader-status">
+          If the reader does not load, use the Open PDF button above.
+        </p>
       </div>
     </section>
   </main>
@@ -65,58 +87,90 @@
   </footer>
 
   <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.worker.min.js";
+    // ----------------------------------------------------
+    // PDF FILE PATH
+    // ----------------------------------------------------
+    // This assumes the PDF is in the ROOT of your repo.
+    // If you move it into a folder later, update this path.
+    const pdfUrl = "Capstone_Written_Report_RoscoeGovan.pdf";
 
-    const url = "Capstone_Written_Report_RoscoeGovan.pdf";
+    // ----------------------------------------------------
+    // PDF.js worker setup
+    // ----------------------------------------------------
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    // ----------------------------------------------------
+    // DOM references
+    // ----------------------------------------------------
     const canvas = document.getElementById("pdf-canvas");
     const context = canvas.getContext("2d");
     const pageInfo = document.getElementById("page-info");
+    const statusText = document.getElementById("reader-status");
     const prevButton = document.getElementById("prev-page");
     const nextButton = document.getElementById("next-page");
 
+    // ----------------------------------------------------
+    // Reader state
+    // ----------------------------------------------------
     let pdfDoc = null;
     let currentPage = 1;
     let totalPages = 0;
     let isRendering = false;
     let pendingPage = null;
-    const scale = 1.35;
 
-    function renderPage(pageNum) {
+    // Slightly larger scale for readability
+    const scale = 1.4;
+
+    // ----------------------------------------------------
+    // Render a single page
+    // ----------------------------------------------------
+    function renderPage(pageNumber) {
       isRendering = true;
 
-      pdfDoc.getPage(pageNum).then((page) => {
-        const viewport = page.getViewport({ scale });
-        canvas.height = viewport.height;
+      pdfDoc.getPage(pageNumber).then(function(page) {
+        const viewport = page.getViewport({ scale: scale });
+
         canvas.width = viewport.width;
+        canvas.height = viewport.height;
 
         const renderContext = {
           canvasContext: context,
-          viewport: viewport,
+          viewport: viewport
         };
 
-        page.render(renderContext).promise.then(() => {
+        page.render(renderContext).promise.then(function() {
           isRendering = false;
 
           if (pendingPage !== null) {
-            renderPage(pendingPage);
+            const nextPendingPage = pendingPage;
             pendingPage = null;
+            renderPage(nextPendingPage);
           }
         });
 
-        pageInfo.textContent = `Page ${pageNum} of ${totalPages}`;
+        pageInfo.textContent = `Page ${pageNumber} of ${totalPages}`;
+
+        prevButton.disabled = pageNumber <= 1;
+        nextButton.disabled = pageNumber >= totalPages;
       });
     }
 
-    function queueRenderPage(pageNum) {
+    // ----------------------------------------------------
+    // Queue rendering if a page is already rendering
+    // ----------------------------------------------------
+    function queueRenderPage(pageNumber) {
       if (isRendering) {
-        pendingPage = pageNum;
+        pendingPage = pageNumber;
       } else {
-        renderPage(pageNum);
+        renderPage(pageNumber);
       }
     }
 
-    function showPrevPage() {
+    // ----------------------------------------------------
+    // Navigation handlers
+    // ----------------------------------------------------
+    function showPreviousPage() {
       if (currentPage <= 1) return;
       currentPage--;
       queueRenderPage(currentPage);
@@ -128,17 +182,25 @@
       queueRenderPage(currentPage);
     }
 
-    pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
-      pdfDoc = pdfDoc_;
-      totalPages = pdfDoc.numPages;
-      renderPage(currentPage);
-    }).catch((error) => {
-      pageInfo.textContent = "Could not load PDF. Check file path and filename.";
-      console.error(error);
-    });
-
-    prevButton.addEventListener("click", showPrevPage);
+    prevButton.addEventListener("click", showPreviousPage);
     nextButton.addEventListener("click", showNextPage);
+
+    // ----------------------------------------------------
+    // Load the PDF
+    // ----------------------------------------------------
+    pdfjsLib.getDocument(pdfUrl).promise
+      .then(function(pdf) {
+        pdfDoc = pdf;
+        totalPages = pdf.numPages;
+        statusText.textContent = "Use the arrows to navigate through the report.";
+        renderPage(currentPage);
+      })
+      .catch(function(error) {
+        console.error("PDF load error:", error);
+        pageInfo.textContent = "Could not load PDF";
+        statusText.textContent =
+          "The PDF could not be loaded. Confirm the filename and path exactly match the file in your GitHub repo.";
+      });
   </script>
 </body>
 </html>
