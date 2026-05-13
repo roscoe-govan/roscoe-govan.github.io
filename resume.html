@@ -1,65 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic character encoding -->
   <meta charset="UTF-8" />
+
+  <!-- Makes the page responsive on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Browser tab title -->
   <title>Resume | Roscoe Govan</title>
-  <meta name="description" content="Resume page for Roscoe Govan." />
 
+  <!-- Search / preview description -->
+  <meta
+    name="description"
+    content="Resume selection page for Roscoe Govan with separate options for cybersecurity and mid/senior IT roles."
+  />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <!--
+    PAGE HEADER
+    ------------------------------------------------------
+    Top section containing navigation and page title.
+  -->
   <header class="hero">
     <div class="container">
+      <!-- Main site navigation -->
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resume.html">Resume</a>
-        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="projects.html">Projects</a>
+        <a href="capstone.html">Capstone</a>
         <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/roscoegovan" target="_blank" rel="noopener noreferrer" class="external-link">LinkedIn</a>
       </nav>
 
+      <!-- Main heading -->
       <h1>Resume</h1>
-      <p class="subtitle">Professional experience, certifications, education, and technical background.</p>
+
+      <!-- Short explanation -->
+      <p class="subtitle">
+        Select the version of my resume that best matches your area of interest.
+      </p>
     </div>
   </header>
 
   <main>
+    <!--
+      INTRO SECTION
+      ------------------------------------------------------
+      Gives visitors a quick explanation of why two resume
+      options are available.
+    -->
     <section class="section">
       <div class="container">
-        <h2>Current Resume</h2>
-
-        <p>
-          My current resume is available below. Visitors may view it directly on this page
-          or download a PDF copy.
+        <p class="resume-intro">
+          I maintain separate resume versions to better align with different
+          types of opportunities. Please choose the version that best fits your
+          interest below.
         </p>
+      </div>
+    </section>
 
-        <!-- Single download option for visitors -->
-        <div class="resume-actions">
-          <a 
-            class="resume-download-link"
-            href="documents/Roscoe-Govan-Resume.pdf"
-            download
-          >
-            Download Resume PDF
-          </a>
-        </div>
+    <!--
+      RESUME OPTION CARDS
+      ------------------------------------------------------
+      Each card sends the visitor to a separate resume page.
+    -->
+    <section class="section alt">
+      <div class="container">
+        <div class="grid">
+          <!-- Cybersecurity resume option -->
+          <div class="card">
+            <h2>Cybersecurity Resume</h2>
+            <p>
+              Best for roles focused on cybersecurity investigations, detection,
+              threat analysis, OSINT, incident support, and related security work.
+            </p>
 
-        <!-- Embedded resume display -->
-        <div class="resume-preview" aria-label="Embedded resume preview">
-          <iframe
-            src="documents/Roscoe-Govan-Resume.pdf"
-            title="Roscoe Govan Resume PDF"
-          >
-            Your browser does not support embedded PDFs.
-          </iframe>
+            <div class="hero-links">
+              <a href="resume-cybersecurity.html">View Cybersecurity Resume</a>
+            </div>
+          </div>
+
+          <!-- Mid/Senior IT resume option -->
+          <div class="card">
+            <h2>Mid/Senior IT Resume</h2>
+            <p>
+              Best for broader IT roles involving enterprise support, infrastructure,
+              technical operations, coordination, and leadership-track responsibilities.
+            </p>
+
+            <div class="hero-links">
+              <a href="resume-it.html">View Mid/Senior IT Resume</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!--
+    FOOTER
+    ------------------------------------------------------
+    Standard footer used across the site.
+  -->
   <footer class="footer">
     <div class="container">
       <p>© 2026 Roscoe Govan. All rights reserved.</p>
