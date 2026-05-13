@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Resume | Roscoe Govan</title>
   <meta name="description" content="Resume page for Roscoe Govan." />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header class="hero">
     <div class="container">
@@ -19,18 +22,40 @@
       </nav>
 
       <h1>Resume</h1>
-      <p class="subtitle">Professional experience, certifications, and education.</p>
+      <p class="subtitle">Professional experience, certifications, education, and technical background.</p>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <h2>Resume</h2>
+        <h2>Current Resume</h2>
+
         <p>
-          This page is reserved for my resume. A downloadable PDF version will
-          be added here.
+          My current resume is available below. Visitors may view it directly on this page
+          or download a PDF copy.
         </p>
+
+        <!-- Single download option for visitors -->
+        <div class="resume-actions">
+          <a 
+            class="resume-download-link"
+            href="documents/Roscoe-Govan-Resume.pdf"
+            download
+          >
+            Download Resume PDF
+          </a>
+        </div>
+
+        <!-- Embedded resume display -->
+        <div class="resume-preview" aria-label="Embedded resume preview">
+          <iframe
+            src="documents/Roscoe-Govan-Resume.pdf"
+            title="Roscoe Govan Resume PDF"
+          >
+            Your browser does not support embedded PDFs.
+          </iframe>
+        </div>
       </div>
     </section>
   </main>
